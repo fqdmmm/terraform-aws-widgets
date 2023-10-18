@@ -37,7 +37,7 @@ resource "aws_db_parameter_group" "db-parameter-group" {
 }
 
 resource "aws_db_instance" "primary" {
-  identifier             = "${var.project_name}-primary"
+  identifier             = "${var.project_name}-${var.env}-primary"
   instance_class         = var.db_instance_class
   allocated_storage      = 5
   engine                 = "postgres"
@@ -52,7 +52,7 @@ resource "aws_db_instance" "primary" {
 }
 
 resource "aws_db_instance" "replica" {
-  identifier             = "${var.project_name}-replica"
+  identifier             = "${var.project_name}-${var.env}-replica"
   instance_class         = var.db_instance_class
   allocated_storage      = 5
   engine                 = "postgres"
